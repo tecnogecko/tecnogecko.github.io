@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculator — Electricity</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-calculator">
+  <header class="topbar">
+    <div class="container">
+      <h1>Electricity Calculator</h1>
+      <nav class="mini-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container dashboard">
+    <!-- Left column: predefined devices -->
+    <section class="panel devices">
+      <h2>Devices (preset)</h2>
+      <p class="muted">Change wattage or hours/day per device.</p>
+      <div id="devices-list" class="device-grid"></div>
+
+      <div class="controls">
+        <label>Cost (COP per Wh)
+          <input id="costPerWh" type="number" step="0.01" placeholder="e.g., 0.6" />
+        </label>
+
+        <label>Days per month
+          <input id="daysPerMonth" type="number" value="30" min="1" />
+        </label>
+
+        <button id="calculateBtn" class="btn primary">Calculate</button>
+        <button id="resetBtn" class="btn ghost">Reset</button>
+      </div>
+    </section>
+
+    <!-- Right column: results and summary -->
+    <aside class="panel results">
+      <h2>Summary</h2>
+      <div id="summaryCards" class="summary-cards">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="totals card">
+        <h3>Totals</h3>
+        <p id="totalWhMonth">Monthly energy: — Wh</p>
+        <p id="totalCostMonth">Monthly cost: — COP</p>
+        <p id="totalWhYear">Yearly energy: — Wh</p>
+        <p id="totalCostYear">Yearly cost: — COP</p>
+      </div>
+
+      <div class="notes card muted">
+        <strong>Notes:</strong>
+        <ul>
+          <li>Average price for watt in Colombia <code>$0.884 Wh</code> based on Gemini 2025.</li>
+          <li>You can edit wattage or hours/day for any device; presets are just starting values.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
