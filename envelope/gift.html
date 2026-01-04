@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Protegido</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, sans-serif;
+      background: #fff0f6;
+      text-align: center;
+    }
+    input, button {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      width: 100%;
+    }
+    button {
+      background: #ff5fa2;
+      color: white;
+      border: none;
+    }
+    .box {
+      max-width: 320px;
+      width: 90%;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🔐 Ingresa la clave</h2>
+    <p>Pista: tu fecha de graduación 📅</p>
+
+    <input type="password" id="password" placeholder="DD/MM/AAAA">
+    <button onclick="checkPassword()">Entrar</button>
+
+    <p class="error" id="error">Clave incorrecta</p>
+  </div>
+
+  <script>
+
+    const CORRECT_PASSWORD = "01/01/2030";
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === CORRECT_PASSWORD) {
+        window.location.href = "gift-open.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

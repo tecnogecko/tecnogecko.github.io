@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tu sobre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, sans-serif;
+      background: #fff7fb;
+      text-align: center;
+    }
+    img {
+      width: 200px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img id="giftImage" src="assets/gift-closed.png" alt="sobre">
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // 🔴 CAMBIAR SOLO ESTA FECHA EN EL FUTURO
+    const unlockDate = new Date("2030-01-01T00:00:00-05:00");
+
+    const now = new Date();
+    const giftImage = document.getElementById("giftImage");
+    const message = document.getElementById("message");
+
+    if (now >= unlockDate) {
+      message.textContent = "Haz clic para abrir tu sobre 📨";
+      giftImage.onclick = () => {
+        giftImage.src = "assets/gift-open.png";
+        message.innerHTML = `
+          <p>✨ Gracias por tu esfuerzo ✨</p>
+          <img src="assets/instructions.png" style="width: 90%; max-width: 300px;">
+        `;
+      };
+    } else {
+      message.textContent = "Vuelve cuando estés en último semestre";
+      giftImage.onclick = () => {
+        alert("Aún no es el momento");
+      };
+    }
+  </script>
+</body>
+</html>
